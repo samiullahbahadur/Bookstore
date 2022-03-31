@@ -28,9 +28,11 @@ hr {
   grid-template-columns: 50% 26% 20%;
   gap: 2%;
 }
+
 .form input {
   padding-left: 20px;
 }
+
 .add-book {
   margin: 2% 5%;
   color: rgba(0, 0, 0, 0.582);
@@ -43,6 +45,7 @@ hr {
   border: none;
   cursor: pointer;
 }
+
 button {
   cursor: pointer;
 }
