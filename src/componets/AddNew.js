@@ -14,7 +14,7 @@ const AddNew = () => (
           </option>
         ))}
       </select>
-      <input type="submit" className="submit" value="Add Book"/>
+      <input type="submit" className="submit" value="Add Book" />
     </form>
   </>
 );

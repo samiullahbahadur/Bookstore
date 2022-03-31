@@ -1,5 +1,6 @@
 import "../assets/BookList.css";
 import Book from "./Book";
+import AddNew from "./AddNew";
 import { v4 as uuidv4 } from "uuid";
 
 const BookList = () => {
