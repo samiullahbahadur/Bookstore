@@ -1,4 +1,4 @@
-import PropType from "prop-types";
+import PropTypes from 'prop-types';
 
 const Book = ({ category, title, author }) => (
   <li>
@@ -8,9 +8,11 @@ const Book = ({ category, title, author }) => (
     <button type="button">Remove</button>
   </li>
 );
-Book.PropType = {
-  title: PropType.string.isRequired,
-  author: PropType.string.isRequired,
-  category: PropType.string.isRequired,
+
+Book.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
+
 export default Book;
