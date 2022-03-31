@@ -18,16 +18,19 @@
 a {
   text-decoration: none;
 }
+
 .logo {
   font-size: 14px;
   color: #0290ff;
 }
+
 .navigation {
   display: flex;
   gap: 20px;
   font-size: 20px;
   color: #121212;
 }
+
 .profile {
   border: solid 2px rgb(221, 221, 221);
   width: 50px;
