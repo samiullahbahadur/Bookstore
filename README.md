@@ -23,6 +23,7 @@ $ npm run start # this will make webpack watching for your changes in code
 ## Built With
 
 - React
+- Redux
 - JavaScript
 - CSS
 
