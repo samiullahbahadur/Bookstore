@@ -27,7 +27,7 @@ $ npm run start # this will make webpack watching for your changes in code
 - JavaScript
 - CSS
 
-## Authors
+
 
 👤 **Samiullah Bahadur**
 
