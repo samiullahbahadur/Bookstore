@@ -1,47 +1,42 @@
 # Bookstore
 
-The Bookstore is a website similar to the "Awesome Books" website built in the previous module. You will create an MVP version of it that allows you to:
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
+> The Bookstore is a website that allow us to View a list of books, Add a new books and Remove a selected book.
 
-- Display a list of books.
-- Add a book.
-- Remove a selected book.
+## Setup
 
-## Project List
+### Clone this repository
 
-- [ ] Initialize project with components (React only).
-- [ ] Add reducers and actions.
-- [ ] Use Redux in React components.
-- [ ] Connect to API.
-- [ ] Styling.
+```bash
+$ git clone git@github.com:samiullahbahadur/Bookstore.git
+$ cd bookstore
+```
 
-## Built with
+### Run project
+
+```bash
+$ npm install
+$ npm run start # this will make webpack watching for your changes in code
+```
+
+## Built With
+
 - React
-- CSS3
+- Redux
+- JavaScript
+- CSS
 
-## Getting Started
-To get a local copy up and running follow the steps below
+## Authors
 
-### 
-- clone this repo by copy pasting this on your terminal ``git clone https://github.com/daudi13/bookstore.git``
+👤 **Samiullah Bahadur**
 
-- open the project folder 'cd math-magician'
-- Run 'npm install' to install all dependencies
-- Run 'npm start' to start the live server
+## 🤝 Contributing
 
-## Author
-**David Ouma**
-- Github: [@daudi13](https://github.com/daudi13/)
-- Twitter: [@davouma](https://github.com/daudi13/)
-
-## Contributing
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/daudi13/math-magician/issues)
+Feel free to check the [issues page](git@github.com:samiullahbahadur/Bookstore/issues).
 
-## Show your Support
-Give a star if you like this project!
+## Show your support
 
-
-## License
-This project is under the [MIT](./LICENSE) license.
+Give a ⭐️ if you like this project!
