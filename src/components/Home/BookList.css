@@ -1,0 +1,13 @@
+.booklist-box {
+  max-width: 1200px;
+  width: 90%;
+  z-index: 1;
+
+  border: 2px solid red;
+}
+
+
+
+.notice {
+  text-align: center;
+}

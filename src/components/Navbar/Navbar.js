@@ -1,9 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../assets/Header.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-const Header = () => (
-  <header className="header">
+const Navbar = () => (
+  <>
+   <header className="header">
     <div className="left-header">
       <Link className="logo" to="/">
         <h1>Bookstore CMS</h1>
@@ -17,5 +18,7 @@ const Header = () => (
       <div className="profile" />
     </div>
   </header>
+  </>
 );
-export default Header;
+
+export default Navbar;
