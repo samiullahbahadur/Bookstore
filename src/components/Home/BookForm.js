@@ -58,11 +58,11 @@ const BookForm = () => {
         </label>
         <label htmlFor="categories">
           <select id="books categories" className="category">
-            <option>Categories</option>
-            <option>Fiction</option>
-            <option>Non-fiction</option>
-            <option>Self-Help</option>
-            <option>financial</option>
+            <option value={book.genre}>Categories</option>
+            <option value={book.genre}>Fiction</option>
+            <option value={book.genre}>Non-fiction</option>
+            <option value={book.genre}>Self-Help</option>
+            <option value={book.genre}>financial</option>
           </select>
         </label>
         <button type="submit" onClick={handleSubmit}>
