@@ -9,6 +9,7 @@ const BookForm = () => {
     id: '',
     title: '',
     author: '',
+    genre: '',
   });
   const dispatch = useDispatch();
 
@@ -30,7 +31,8 @@ const BookForm = () => {
 
   return (
     <form>
-      <h3>Add New Books</h3>
+      <h4>Add New Books</h4>
+      <br />
       <div className="form-container">
         <label htmlFor="book-title">
           <input
@@ -63,7 +65,9 @@ const BookForm = () => {
             <option>financial</option>
           </select>
         </label>
-        <button type="submit" onClick={handleSubmit}>Add Book</button>
+        <button type="submit" onClick={handleSubmit}>
+          Add Book
+        </button>
       </div>
     </form>
   );

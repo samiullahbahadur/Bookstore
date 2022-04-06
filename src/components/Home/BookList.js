@@ -7,14 +7,11 @@ const BookList = () => {
   const books = useSelector((state) => state.reducer);
   return (
     <ul className="booklist-box">
-      {
-        books.length ? books.map((book) => (
-          <Book
-            key={book.id}
-            book={book}
-          />
-        )) : <h2 className="notice">No books to display!!</h2>
-    }
+      {books.length ? (
+        books.map((book) => <Book key={book.id} book={book} />)
+      ) : (
+        <h2 className="notice">Please Add a Book!!</h2>
+      )}
     </ul>
   );
 };

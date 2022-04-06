@@ -1,7 +1,7 @@
 .bookItem {
   width: 100%;
-  border: 2px solid black;
   padding: 10px;
+  border-bottom: solid 1px rgb(221, 221, 221);
 }
 
 .bookItems-secs {
@@ -13,7 +13,7 @@
 .books > .genre {
   font-size: 15px;
   font-weight: 700;
-  color: grey;
+  color: rgb(17, 12, 12);
   margin-bottom: 10px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .books > .bookAuthor {
-  color: rgb(0, 110, 255);
+  color: rgb(57, 124, 211);
 }
 
 .actionButtons {
@@ -36,7 +36,7 @@
   padding: 5px 10px 0 0;
   background-color: #fff;
   border: none;
-  color: aqua;
+  color: rgb(57, 124, 211);
   text-align: left;
 }
 
@@ -57,4 +57,8 @@
   background-color: rgb(40, 148, 236);
   color: #fff;
   border: none;
+}
+
+button{
+cursor: pointer;
 }

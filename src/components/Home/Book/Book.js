@@ -8,22 +8,28 @@ import { removeBook } from '../../../redux/books/books';
 const Book = ({ book }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => (
-    dispatch(removeBook(book))
-  );
+  const handleDelete = () => dispatch(removeBook(book));
   return (
     <li className="bookItem">
       <ul className="bookItems-secs">
         <li className="bookDetails">
           <ul className="books">
-            <li className="genre">{}</li>
+            <li className="genre">{book.genre}</li>
             <li className="booktitle">{book.title}</li>
             <li className="bookAuthor">{book.author}</li>
           </ul>
           <ul className="actionButtons">
-            <li><button type="button">Comments</button></li>
-            <li><button type="button" onClick={handleDelete}>Remove</button></li>
-            <li><button type="button">Edit</button></li>
+            <li>
+              <button type="button">Comments</button>
+            </li>
+            <li>
+              <button type="button" onClick={handleDelete}>
+                Remove
+              </button>
+            </li>
+            <li>
+              <button type="button">Edit</button>
+            </li>
           </ul>
         </li>
         <li className="update-sec">
@@ -45,7 +51,9 @@ const Book = ({ book }) => {
               {' '}
               <span className="chapter">{}</span>
             </li>
-            <li><button type="button">UPDATE PROGRESS</button></li>
+            <li>
+              <button type="button">UPDATE PROGRESS</button>
+            </li>
           </ul>
         </li>
       </ul>

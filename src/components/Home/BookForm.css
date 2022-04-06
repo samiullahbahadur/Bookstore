@@ -1,12 +1,9 @@
 form {
-  max-width: 1550px;
-  width: 100%;
+  width: 90%;
   padding: 2rem;
-  border: 2px solid black;
-  position: fixed;
-  bottom: 0;
-  z-index: 10;
   background-color: #fff;
+ position:relative;
+ border-top: solid 1px rgb(221, 221, 221);
 }
 
 form > .form-container {
