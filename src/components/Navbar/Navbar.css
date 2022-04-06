@@ -1,12 +1,13 @@
 .header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 1px rgb(221, 221, 221);
   padding: 20px 10%;
   font-family: sans-serif;
-  margin-bottom: 30px;
+  width: 98%;
+  position: absolute;
+  top: 0;
 }
 
 .left-header {
