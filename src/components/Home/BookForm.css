@@ -2,8 +2,8 @@ form {
   width: 90%;
   padding: 2rem;
   background-color: #fff;
- position:relative;
- border-top: solid 1px rgb(221, 221, 221);
+  position: relative;
+  border-top: solid 1px rgb(221, 221, 221);
 }
 
 form > .form-container {
