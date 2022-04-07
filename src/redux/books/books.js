@@ -52,3 +52,36 @@ export function addbook(book) {
       });
   };
 }
+
+export const addBookRequest = () => ({
+  type: ADD_BOOK_REQUEST,
+});
+
+export const addBookSuccess = (booksArr) => ({
+  type: ADD_BOOK_SUCCESS,
+  payload: booksArr,
+});
+
+export const addBookFail = (error) => ({
+  type: ADD_BOOK_FAIL,
+  payload: error,
+});
+
+export function addbook(book) {
+  return (dispatch) => {
+    dispatch(addBookRequest());
+    const {
+      id, title, author, category,
+    } = book;
+    Database.addBooks(id, title, author, category)
+      .then(() => {
+        const bookNew = {};
+        bookNew[id] = [{ title, author, category }];
+        dispatch(addBookSuccess(bookNew));
+      })
+      .catch((error) => {
+        dispatch(addBookFail(error.message));
+      });
+  };
+}
+
