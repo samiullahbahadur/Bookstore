@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import PropTypes from "prop-types";
-import "./Book.css";
-import { useDispatch } from "react-redux";
-import { removeBook } from "../../../redux/books/books";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Book.css';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../../../redux/books/books';
 
 const Book = ({ book }) => {
   const dispatch = useDispatch();
@@ -47,7 +47,9 @@ const Book = ({ book }) => {
           <ul className="chapter-secInner">
             <li className="title">CURRENT CHAPTER</li>
             <li>
-              Chapter <span className="chapter">{}</span>
+              Chapter
+              {' '}
+              <span className="chapter">{}</span>
             </li>
             <li>
               <button type="button">UPDATE PROGRESS</button>

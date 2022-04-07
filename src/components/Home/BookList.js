@@ -13,21 +13,19 @@ const BookList = () => {
     dispatch(getBooks());
   }, []);
 
-  const bookList = books.bookArr === undefined || Object.entries(books.bookArr).map((element) => ({
-    item_id: element[0], ...element[1][0],
-  }));
+  const bookList = books.bookArr === undefined
+    || Object.entries(books.bookArr).map((element) => ({
+      item_id: element[0],
+      ...element[1][0],
+    }));
 
-  console.log(bookList);
   return (
     <ul className="booklist-box">
-      {
-        bookList.length ? bookList.map((book) => (
-          <Book
-            key={book.item_id}
-            book={book}
-          />
-        )) : <h2 className="notice">No books to display!!</h2>
-    }
+      {bookList.length ? (
+        bookList.map((book) => <Book key={book.item_id} book={book} />)
+      ) : (
+        <h2 className="notice">Please Add a Book!!</h2>
+      )}
     </ul>
   );
 };

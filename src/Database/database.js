@@ -1,6 +1,6 @@
 class Database {
   static API_URL =
-    "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/dUOcYELpBonSfWBKhXX4/books";
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/dUOcYELpBonSfWBKhXX4/books';
 
   static async addBooks(id, title, author, category) {
     const bookData = {
@@ -11,9 +11,9 @@ class Database {
     };
 
     const res = await fetch(this.API_URL, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(bookData),
     });
@@ -29,9 +29,9 @@ class Database {
     bookData.item_id = id;
 
     const res = await fetch(deleteBookEndpoint, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(bookData),
     });
@@ -45,13 +45,13 @@ class Database {
     const res = await fetch(this.API_URL);
 
     if (res.status !== 200) {
-      throw new Error("Error fethching books");
+      throw new Error('Error fethching books');
     }
     try {
       const response = await res.json();
       return response;
     } catch (error) {
-      throw new Error("database connection compromised");
+      throw new Error('database connection compromised');
     }
   }
 }
