@@ -8,13 +8,13 @@ import { removeBook } from '../../../redux/books/books';
 const Book = ({ book }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => dispatch(removeBook(book));
+  const handleDelete = () => dispatch(removeBook(book.item_id));
   return (
     <li className="bookItem">
       <ul className="bookItems-secs">
         <li className="bookDetails">
           <ul className="books">
-            <li className="genre">{book.genre}</li>
+            <li className="genre">{}</li>
             <li className="booktitle">{book.title}</li>
             <li className="bookAuthor">{book.author}</li>
           </ul>
