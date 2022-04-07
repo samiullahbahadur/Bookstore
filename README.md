@@ -43,10 +43,6 @@ To get a local copy up and running follow these simple example steps.
 - Run `npm install` to install the _dependencies_
 - Run `npm start` to run the live server.
 
-#### (Optional) Run tests
-
-- Stop the server if it's already running `CTRL` + `C`
-- Run `npm test` run the tests
 
 ## About me
 
