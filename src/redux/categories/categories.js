@@ -1,20 +1,18 @@
-const CATEGORIES = 'bookstore/categories/CATEGORIES';
+const defaultState = [];
+const CHECK_STATUS = 'bookstore-cms/categories/CHECK';
 
-const intialState = [];
+export function checkStatus() {
+  return { type: CHECK_STATUS };
+}
 
-export const categoriesStatus = (payload) => ({
-  index: 0,
-  type: CATEGORIES,
-  payload,
-});
-
-const categoriesReducer = (state = intialState, action) => {
+export default function categoriesReducer(
+  state = defaultState,
+  action,
+) {
   switch (action.type) {
-    case CATEGORIES:
-      return 'under construction';
+    case CHECK_STATUS:
+      return 'Under Construction';
     default:
       return state;
   }
-};
-
-export default categoriesReducer;
+}

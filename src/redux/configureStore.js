@@ -1,13 +1,29 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore,
+  compose,
+} from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import categoriesReducer from './categories/categories';
-import reducer from './books/books';
+import bookReducer from './books/books';
 
-const root = combineReducers({
-  categoriesReducer,
-  reducer,
+const rootReducer = combineReducers({
+  books: bookReducer,
+  categories: categoriesReducer,
 });
 
-const store = createStore(root, applyMiddleware(thunk));
-store.dispatch(reducer);
+/* eslint-disable no-underscore-dangle */
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
+);
+/* eslint-enable */
+
+store.dispatch(bookReducer);
+
 export default store;

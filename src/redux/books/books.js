@@ -1,159 +1,187 @@
-import Database from '../../Database/database';
+import BookstoreApi from '../../api/bookstore-api';
 
-const ADD_BOOK_REQUEST = 'bookstore/books/ADD_BOOK_REQUEST';
-const ADD_BOOK_SUCCESS = 'bookstore/books/ADD_BOOK_SUCCESS';
-const ADD_BOOK_FAIL = 'bookstore/books/ADD_BOOK_FAIL';
+const GET_BOOKS_REQUEST = 'bookstore-cms/books/GET_REQUEST';
+const GET_BOOKS_SUCCESS = 'bookstore-cms/books/GET_SUCCESS';
+const GET_BOOKS_FAILURE = 'bookstore-cms/books/GET_FAILURE';
 
-const GET_BOOKS_REQUEST = 'bookstore/books/GET_BOOKS_REQUEST';
-const GET_BOOKS_SUCCESS = 'bookstore/books/GET_BOOKS_SUCCESS';
-const GET_BOOKS_FAIL = 'bookstore/books/GET_BOOKS_FAIL';
+const ADD_BOOK_REQUEST = 'bookstore-cms/books/ADD_REQUEST';
+const ADD_BOOK_SUCCESS = 'bookstore-cms/books/ADD_SUCCESS';
+const ADD_BOOK_FAILURE = 'bookstore-cms/books/ADD_FAILURE';
 
-const REMOVE_BOOK_REQUEST = 'bookstore/books/REMOVE_BOOK_REQUEST';
-const REMOVE_BOOK_SUCCESS = 'bookstore/books/REMOVE_BOOK_SUCCESS';
-const REMOVE_BOOK_FAIL = 'bookstore/books/REMOVE_BOOK_FAIL';
+const DELETE_BOOK_REQUEST = 'bookstore-cms/books/DELETE_REQUEST';
+const DELETE_BOOK_SUCCESS = 'bookstore-cms/books/DELETE_SUCCESS';
+const DELETE_BOOK_FAILURE = 'bookstore-cms/books/DELETE_FAILURE';
 
-const intialState = {
+const initialState = {
   loading: false,
-  booksArr: {},
+  bookList: {},
   error: '',
 };
 
-export const addBookRequest = () => ({
-  type: ADD_BOOK_REQUEST,
-});
-
-export const addBookSuccess = (booksArr) => ({
-  type: ADD_BOOK_SUCCESS,
-  payload: booksArr,
-});
-
-export const addBookFail = (error) => ({
-  type: ADD_BOOK_FAIL,
-  payload: error,
-});
-
-export function addbook(book) {
-  return (dispatch) => {
-    dispatch(addBookRequest());
-    const {
-      id, title, author, category,
-    } = book;
-    Database.addBooks(id, title, author, category)
-      .then(() => {
-        const bookNew = {};
-        bookNew[id] = [{ title, author, category }];
-        dispatch(addBookSuccess(bookNew));
-      })
-      .catch((error) => {
-        dispatch(addBookFail(error.message));
-      });
+// get book action creators
+export function getBooksRequest() {
+  return {
+    type: GET_BOOKS_REQUEST,
   };
 }
 
-export const getBookRequest = () => ({
-  type: GET_BOOKS_REQUEST,
-});
+export function getBooksSuccess(bookList) {
+  return {
+    type: GET_BOOKS_SUCCESS,
+    payload: bookList,
+  };
+}
 
-export const getBookSuccess = (bookArr) => ({
-  type: GET_BOOKS_SUCCESS,
-  payload: bookArr,
-});
-
-export const getBooksFail = (error) => ({
-  type: GET_BOOKS_FAIL,
-  payload: error,
-});
+export function getBooksFailure(error) {
+  return {
+    type: GET_BOOKS_FAILURE,
+    payload: error,
+  };
+}
 
 export function getBooks() {
   return (dispatch) => {
-    dispatch(getBookRequest());
-    Database.getbooks()
+    dispatch(getBooksRequest());
+    BookstoreApi.getBooks()
       .then((data) => {
-        dispatch(getBookSuccess(data));
+        dispatch(getBooksSuccess(data));
       })
-      .catch((error) => dispatch(getBooksFail(error.message)));
+      .catch((error) => dispatch(getBooksFailure(error.message)));
   };
 }
 
-export const removeBookRequest = () => ({
-  type: REMOVE_BOOK_REQUEST,
-});
+// add book action creators
+export function addBookRequest() {
+  return {
+    type: ADD_BOOK_REQUEST,
+  };
+}
 
-export const removeBookSuccess = (id) => ({
-  type: REMOVE_BOOK_SUCCESS,
-  payload: id,
-});
+export function addBookSuccess(book) {
+  return {
+    type: ADD_BOOK_SUCCESS,
+    payload: book,
+  };
+}
 
-export const removeBookFail = (error) => ({
-  type: REMOVE_BOOK_FAIL,
-  payload: error,
-});
+export function addBookFailure(error) {
+  return {
+    type: ADD_BOOK_FAILURE,
+    payload: error,
+  };
+}
 
-export function removeBook(id) {
+export function addBook(book) {
   return (dispatch) => {
-    dispatch(removeBookRequest());
-    Database.delBook(id)
+    dispatch(addBookRequest());
+    const {
+      itemId, title, author, category,
+    } = book;
+    BookstoreApi.addBook(itemId, title, author, category)
       .then(() => {
-        dispatch(removeBookSuccess(id));
+        const newBook = {};
+        newBook[itemId] = [{ title, author, category }];
+        dispatch(addBookSuccess(newBook));
       })
       .catch((error) => {
-        dispatch(removeBookFail(error.message));
+        dispatch(addBookFailure(error.message));
       });
   };
 }
 
-const reducer = (state = intialState, action) => {
+// delete book action creators
+export function deleteBookRequest() {
+  return {
+    type: DELETE_BOOK_REQUEST,
+  };
+}
+
+export function deleteBookSuccess(id) {
+  return {
+    type: DELETE_BOOK_SUCCESS,
+    payload: id,
+  };
+}
+
+export function deleteBookFailure(error) {
+  return {
+    type: DELETE_BOOK_FAILURE,
+    payload: error,
+  };
+}
+
+export function deleteBook(id) {
+  return (dispatch) => {
+    dispatch(deleteBookRequest());
+    BookstoreApi.deleteBook(id)
+      .then(() => {
+        dispatch(deleteBookSuccess(id));
+      })
+      .catch((error) => {
+        dispatch(deleteBookFailure(error.message));
+      });
+  };
+}
+
+// book reducer
+
+export default function bookReducer(
+  state = initialState,
+  action,
+) {
   switch (action.type) {
-    case ADD_BOOK_REQUEST:
-      return { ...state, loading: true };
-
-    case ADD_BOOK_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        bookArr: { ...state.bookArr, ...action.payload },
-        error: '',
-      };
-
-    case ADD_BOOK_FAIL: {
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    }
+    // get book
     case GET_BOOKS_REQUEST:
       return { ...state, loading: true };
 
     case GET_BOOKS_SUCCESS:
       return {
-        ...state,
         loading: false,
-        bookArr: action.payload,
+        bookList: action.payload,
         error: '',
       };
 
-    case GET_BOOKS_FAIL: {
+    case GET_BOOKS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-    }
-    case REMOVE_BOOK_REQUEST:
+
+    // add book
+    case ADD_BOOK_REQUEST:
       return { ...state, loading: true };
 
-    case REMOVE_BOOK_SUCCESS:
+    case ADD_BOOK_SUCCESS:
+      return {
+        loading: false,
+        bookList: { ...state.bookList, ...action.payload },
+        error: '',
+      };
+
+    case ADD_BOOK_FAILURE:
       return {
         ...state,
         loading: false,
-        bookArr: Object.fromEntries(
-          Object.entries(state.bookArr).filter((e) => e[0] !== action.payload),
+        error: action.payload,
+      };
+
+    // delete book
+    case DELETE_BOOK_REQUEST:
+      return { ...state, loading: true };
+
+    case DELETE_BOOK_SUCCESS:
+      return {
+        loading: false,
+        bookList: Object.fromEntries(
+          Object.entries(state.bookList).filter(
+            (e) => e[0] !== action.payload,
+          ),
         ),
         error: '',
       };
 
-    case REMOVE_BOOK_FAIL:
+    case DELETE_BOOK_FAILURE:
       return {
         ...state,
         loading: false,
@@ -162,6 +190,4 @@ const reducer = (state = intialState, action) => {
     default:
       return state;
   }
-};
-
-export default reducer;
+}

@@ -1,42 +1,68 @@
-# Bookstore
+# Bookstore CMS
 
-![](https://img.shields.io/badge/Microverse-blueviolet)
+![Microverse](https://img.shields.io/badge/Microverse-blueviolet)
 
-> The Bookstore is a website that allow us to View a list of books, Add a new books and Remove a selected book.
-
-## Setup
-
-### Clone this repository
-
-```bash
-$ git clone git@github.com:samiullahbahadur/Bookstore.git
-$ cd bookstore
-```
-
-### Run project
-
-```bash
-$ npm install
-$ npm run start # this will make webpack watching for your changes in code
-```
+> **Bookstore CMS** is an SPA made for all the book lovers. It provides an easy way to organize a collection of book, as well as progress tracking functionalities. For instance, a user can easily add a new book by providing a book title and the category.
+> It is built using React.js
 
 ## Built With
 
-- React
-- Redux
-- JavaScript
-- CSS
+- React (CRA)
+- Redux (react-redux)
+- TailwindCss
 
-## Authors
+## Milestones
+
+- [x] Milestone 1: **Initialize project with components**
+- [x] Milestone 2: **Add reducers and actions**
+- [x] Milestone 3: **Use Redux in React components**
+- [x] Milestone 4: **Connect to API**
+- [x] Milestone 5: **Custom Styling**
+
+## sneak peek
+
+![Application GIF](./public/images/bookstorecms.gif)
+
+## Getting Started
+
+**Prerequisites:** A Web Browser (preferably FireFox or Chrome)
+To get a local copy up and running follow these simple example steps.
+
+### **Option 1**
+
+#### Use the live Website
+
+[BookStore Website](https://samiullahbahadur.github.io/Bookstore/)
+
+### **Option 2**
+
+#### Set up your own copy locally
+
+- Clone [the GitHub Repository](https://github.com/samiullahbahadur/Bookstore)
+- Go to the Project `cd Bookstor`
+- Run `npm install` to install the _dependencies_
+- Run `npm start` to run the live server.
+
+#### (Optional) Run tests
+
+- Stop the server if it's already running `CTRL` + `C`
+- Run `npm test` run the tests
+
+## About me
 
 👤 **Samiullah Bahadur**
 
-## 🤝 Contributing
+
+## Contributors
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](git@github.com:samiullahbahadur/Bookstore/issues).
+Feel free to check the [issues page](../../issues/).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is under the [MIT](./LICENSE) license.
