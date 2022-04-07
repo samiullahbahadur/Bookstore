@@ -21,27 +21,34 @@ const intialState = {
 
 
 
-
-export const addbook = (payload) => ({
-  type: ADD_BOOK,
-  payload,
+export const addBookRequest = () => ({
+  type: ADD_BOOK_REQUEST,
 });
 
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
+export const addBookSuccess = (booksArr) => ({
+  type: ADD_BOOK_SUCCESS,
+  payload: booksArr,
 });
 
-const reducer = (state = intialState, action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.payload];
+export const addBookFail = (error) => ({
+  type: ADD_BOOK_FAIL,
+  payload: error,
+});
 
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload.id);
-    default:
-      return state;
-  }
-};
-
-export default reducer;
+export function addbook(book) {
+  return (dispatch) => {
+    dispatch(addBookRequest());
+    const {
+      id, title, author, category,
+    } = book;
+    Database.addBooks(id, title, author, category)
+      .then(() => {
+        const bookNew = {};
+        bookNew[id] = [{ title, author, category }];
+        dispatch(addBookSuccess(bookNew));
+      })
+      .catch((error) => {
+        dispatch(addBookFail(error.message));
+      });
+  };
+}
