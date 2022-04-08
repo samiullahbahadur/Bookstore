@@ -6,7 +6,7 @@ export default function Button({ ...props }) {
     <button
       className={`text-dirty-white bg-azure rounded w-fit font-light font-roboto ${props.twClasses}`}
       type={props.type === 'submit' ? 'submit' : 'button'}
-      onClick={props.handleClick}
+      onClick={props.handleClick}  
     >
       {props.text}
     </button>

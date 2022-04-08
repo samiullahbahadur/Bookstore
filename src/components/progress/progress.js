@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {
-  CircularProgressbar,
-  buildStyles,
-} from 'react-circular-progressbar';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import PropTypes from "prop-types";
 
 export default function Progress(props) {
   const { percent } = props;
@@ -13,27 +10,25 @@ export default function Progress(props) {
   }, [percent]);
 
   return (
-    <div className="flex gap-2 h-full justify-center items-center">
+    <div className="flex gap-5 mr-15  " >
       <div className="h-20 w-20 flex items-center justify-center">
         <CircularProgressbar
           circleRatio={1}
           value={percentage}
           styles={buildStyles({
             rotation: 0,
-            strokeLinecap: 'butt',
-            textSize: '24px',
+            strokeLinecap: "butt",
+            textSize: "24px",
             pathTransitionDuration: 1,
-            pathColor: 'rgb(3 105 161)',
-            trailColor: 'lightgray',
-            backgroundColor: 'red',
+            pathColor: "rgb(3 105 161)",
+            trailColor: "lightgray",
+            backgroundColor: "red",
           })}
         />
       </div>
       <div className="flex flex-col justify-center">
         <span className="text-4xl">{`${percentage}%`}</span>
-        <span className="text-sm opacity-50">
-          Completed
-        </span>
+        <span className="text-sm opacity-50">Completed</span>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../button/button';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import Button from "../button/button";
 
 export default function ChapterProgress(props) {
   const { chapter } = props;
@@ -10,13 +10,11 @@ export default function ChapterProgress(props) {
   }, [chapter]);
 
   return (
-    <div className="flex flex-col gap-2 justify-center items-start w-64 ">
+    <div className="flex flex-col gap-2 justify-center items-center w-64 mr-8 ">
       <span className="text-black-two font-roboto font-light text-sm opacity-50">
         CURRENT CHAPTER
       </span>
-      <span className="text-black-two font-roboto font-light">
-        {chapter}
-      </span>
+      <span className="text-black-two font-roboto font-light">{chapter}</span>
       <Button text="UPDATE PROGRESS" />
     </div>
   );
