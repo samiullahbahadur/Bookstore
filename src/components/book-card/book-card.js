@@ -8,7 +8,7 @@ export default function BookCard(props) {
     id, percent, chapter, genre, title, author,
   } = props;
   return (
-    <section className="flex flex-col gap-10 items-center bg-white w-fit m-auto md:w-full  md:flex-row justify-between rounded-sm px-5 py-6 shadow-md" >
+    <section className="flex flex-col gap-10 items-center bg-white w-fit m-auto md:w-full  md:flex-row justify-between rounded-sm px-5 py-6 shadow-md">
       <BookInfo
         id={id}
         genre={genre}

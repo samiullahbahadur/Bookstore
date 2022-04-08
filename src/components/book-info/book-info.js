@@ -1,10 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
-import { deleteBook } from "../../redux/books/books";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deleteBook } from '../../redux/books/books';
 
 export default function BookInfo(props) {
-  const { genre, title, author, id } = props;
+  const {
+    genre, title, author, id,
+  } = props;
   const dispatch = useDispatch();
 
   const handleRemove = () => {
@@ -14,7 +16,7 @@ export default function BookInfo(props) {
   return (
     <div
       className="flex flex-col gap-6 justify-between items-start w-72 ml-3"
-      
+
     >
       <div className="flex flex-col gap-0">
         <span className="font-bold text-sm text-black-two opacity-50">

@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ChapterProgress from "../chapter-progress/chapter-progress";
-import Progress from "../progress/progress";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ChapterProgress from '../chapter-progress/chapter-progress';
+import Progress from '../progress/progress';
 
 export default function BookProgress(props) {
   const { percent, chapter } = props;

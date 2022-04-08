@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import Button from "../button/button";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import Button from '../button/button';
 
 export default function ChapterProgress(props) {
   const { chapter } = props;
