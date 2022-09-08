@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 
 #### Use the live Website
 
-[BookStore Website](https://samiullahbahadur.github.io/Bookstore/)
+[BookStore Website](https://bookstor1.herokuapp.com/)
 
 ### **Option 2**
 
